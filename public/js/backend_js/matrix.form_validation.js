@@ -1,10 +1,10 @@
 
 $(document).ready(function(){
-	
+
 	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
-	
+
 	$('select').select2();
-	
+
 	// Form Validation
     $("#basic_validate").validate({
 		rules:{
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			$(element).parents('.control-group').addClass('success');
 		}
 	});
-	
+
 	$("#number_validate").validate({
 		rules:{
 			min:{
@@ -60,9 +60,14 @@ $(document).ready(function(){
 			$(element).parents('.control-group').addClass('success');
 		}
 	});
-	
+
 	$("#password_validate").validate({
 		rules:{
+            cwd:{
+				required: true,
+				minlength:6,
+				maxlength:20
+			},
 			pwd:{
 				required: true,
 				minlength:6,
