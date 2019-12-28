@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,4 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin
 Route::match(['get', 'post'], '/admin', 'AdminController@login');
-Route::get('/admin/dashboard', 'AdminController@dashboard');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin/dashboard', 'AdminController@dashboard');
+    Route::get('/logout', 'AdminController@logout');
+});

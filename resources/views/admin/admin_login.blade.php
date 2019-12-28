@@ -13,6 +13,14 @@
 </head>
 <body>
 <div id="loginbox">
+
+    @if ($message = Session::get('message'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
     <form id="loginform" class="form-vertical" method="post" action="{{  url('admin') }}">
         @csrf
         <div class="control-group normal_text"> <h3><img src="{{ asset('images/backend_images/logo.png') }}" alt="Logo" /></h3></div>
@@ -53,6 +61,7 @@
 
 <script src="{{ asset('js/backend_js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/backend_js/matrix.login.js') }}"></script>
+<script src="{{ asset('js/backend_js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
